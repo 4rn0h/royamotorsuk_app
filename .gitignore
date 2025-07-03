@@ -1,0 +1,64 @@
+✅ Django + React (Full Stack Setup)
+If you're using React as the frontend (often in a subfolder like frontend/), your .gitignore should include both Django and React-specific ignores.
+
+.gitignore (Django + React):
+gitignore
+Copy
+Edit
+# === Django Backend ===
+
+# Python
+*.py[cod]
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Django
+db.sqlite3
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+*.env
+.env
+.env.*
+
+# Django static/media
+/staticfiles/
+/media/
+/static/
+/static_root/
+/media_root/
+
+# Migrations
+*/migrations/*.py
+*/migrations/*.pyc
+*/migrations/__pycache__/
+
+# === React Frontend (assumed in a /frontend directory) ===
+rmotors_frontend/node_modules/
+rmotors_frontend/build/
+rmotors_frontend/.env
+rmotors_frontend/.env.*
+rmotors_frontend/.DS_Store
+rmotors_frontend/npm-debug.log*
+rmotors_frontend/yarn-debug.log*
+rmotors_frontend/yarn-error.log*
+
+# === General ===
+.vscode/
+.idea/
+*.swp
+.DS_Store
+*.bak
+*.tmp
+*.log
+
+# === Packaging ===
+build/
+dist/
+*.egg-info/
+.eggs/
