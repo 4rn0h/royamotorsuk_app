@@ -17,4 +17,5 @@ class Vehicle(models.Model):
 
 class VehicleImage(models.Model):
     vehicle = models.ForeignKey(Vehicle, related_name="images", on_delete=models.CASCADE)
-    image = models.URLField()  # We'll store image URLs
+    image = models.ImageField(upload_to='vehicle_images/')
+

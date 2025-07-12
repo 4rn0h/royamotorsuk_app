@@ -1,4 +1,5 @@
 // src/pages/AboutPage.tsx
+import teamImage from '../assets/images/About_Us.jpeg';
 import React, { useEffect } from 'react';
 import { Award, Users, MapPin, Shield } from 'lucide-react';
 import CallToAction from '../components/CallToAction';
@@ -45,8 +46,8 @@ const AboutPage: React.FC = () => {
           </div>
           <div className="bg-white p-6 rounded-lg shadow-lg">
             <img
-              src="https://images.pexels.com/photos/120049/pexels-photo-120049.jpeg"
-              alt="RoyaMotorsUK team"
+              src={teamImage}
+              alt="RoyaMotorsUK About_Us"
               className="w-full h-auto rounded-lg"
             />
           </div>

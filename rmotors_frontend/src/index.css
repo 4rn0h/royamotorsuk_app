@@ -1,39 +1,24 @@
 /* src/index.css */
 
-/* Import Google Fonts */
+/* Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
 
-/* Import Tailwind CSS directives */
+/* Tailwind CSS */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  :root {
-    /* Sophisticated Edge Color Scheme - Using RGB values for Tailwind JIT compatibility */
-    --primary: 13 13 13; /* #0D0D0D - Near Black (Dominant Base) */
-    --accent: 255 59 48; /* #FF3B30 - Fire Red (Primary Accent) */
-    --secondary: 255 200 0; /* #FFC800 - Amber Yellow (Secondary Accent) */
-    --neutral: 248 248 248; /* #F8F8F8 - Off-White (Text/Light Backgrounds) */
-    --cta: 255 59 48; /* #FF3B30 - Fire Red (Call to Action - same as accent) */
-    /* Note: Slate Grey (#5C6166) can be used directly with Tailwind's gray classes like text-gray-700 or bg-gray-700 */
-  }
-
   html {
     @apply scroll-smooth;
   }
 
   body {
-    /* Apply new primary background and neutral text color */
-    /* Tailwind will automatically use the --primary and --neutral custom properties if configured in tailwind.config.js */
-    @apply font-body text-neutral bg-primary; 
-    /* Ensure the body takes full height for proper layout */
-    min-height: 100vh; 
+    @apply font-body text-neutral bg-primary min-h-screen;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    /* Keep existing font-heading, but ensure text color is readable on new dark background */
-    @apply font-heading font-medium text-neutral; 
+    @apply font-heading font-medium text-neutral;
   }
 
   h1 {
@@ -63,22 +48,18 @@
   }
 
   .btn-primary {
-    /* Use new cta color */
     @apply bg-cta text-white hover:bg-cta/90;
   }
 
   .btn-secondary {
-    /* Use new secondary color */
     @apply bg-secondary text-primary hover:bg-secondary/90;
   }
 
   .btn-outline {
-    /* Adjust outline button for new primary/neutral colors */
     @apply border-2 border-accent text-accent hover:bg-accent hover:text-primary;
   }
 
   .card {
-    /* Ensure card background is neutral and text is readable */
     @apply bg-neutral rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg;
   }
 
@@ -90,8 +71,7 @@
     @apply container mx-auto px-4;
   }
 
-  /* Basic styling for ChatWidget */
   .chat-widget-container {
-    @apply fixed bottom-4 right-4 z-50; /* Positions it fixed at bottom-right */
+    @apply fixed bottom-4 right-4 z-50;
   }
 }

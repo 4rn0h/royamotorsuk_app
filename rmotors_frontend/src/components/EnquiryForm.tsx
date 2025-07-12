@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Lead } from '../types';
-import { Car, Mail, Phone, MessageCircle } from 'lucide-react';
+import { Car, MessageCircle } from 'lucide-react';
 
 interface EnquiryFormProps {
   carId?: string;
@@ -22,57 +22,45 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ carId }) => {
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
-    
     if (!formData.name) newErrors.name = 'Name is required';
-    if (!formData.email) {
-      newErrors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Email is invalid';
-    }
+    if (!formData.email) newErrors.email = 'Email is required';
+    else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Email is invalid';
     if (!formData.phone) newErrors.phone = 'Phone number is required';
     if (!formData.message) newErrors.message = 'Message is required';
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    
-    // Clear error when field is edited
     if (errors[name]) {
-      setErrors((prev) => {
-        const newErrors = { ...prev };
-        delete newErrors[name];
-        return newErrors;
-      });
+      const newErrors = { ...errors };
+      delete newErrors[name];
+      setErrors(newErrors);
     }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
     if (!validate()) return;
-    
     setIsSubmitting(true);
-    
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      console.log('Form submitted:', formData);
-      
-      // Reset form after submission
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        preferredContact: 'Email',
-        message: '',
-        carId,
-      });
-    }, 1000);
+
+    fetch('http://127.0.0.1:8000/api/enquiries/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error('Failed to send enquiry');
+        return res.json();
+      })
+      .then(() => setIsSubmitted(true))
+      .catch((err) => alert('Submission failed: ' + err.message))
+      .finally(() => setIsSubmitting(false));
   };
 
   if (isSubmitted) {
@@ -83,13 +71,9 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ carId }) => {
         </div>
         <h3 className="text-2xl font-medium text-green-800 mb-2">Enquiry Sent Successfully!</h3>
         <p className="text-green-700 mb-4">
-          Thank you for your interest. Our team will contact you shortly via your preferred
-          method of communication.
+          Thank you for your interest. Our team will contact you shortly via your preferred method.
         </p>
-        <button
-          onClick={() => setIsSubmitted(false)}
-          className="btn btn-primary mt-2"
-        >
+        <button onClick={() => setIsSubmitted(false)} className="btn btn-primary mt-2">
           Send Another Enquiry
         </button>
       </div>
@@ -98,8 +82,11 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ carId }) => {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
+      <input type="hidden" name="carId" value={carId} />
+
+      {/* Name */}
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+        <label htmlFor="name" className="block text-sm font-medium mb-1 text-primary">
           Your Name *
         </label>
         <input
@@ -108,15 +95,16 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ carId }) => {
           name="name"
           value={formData.name}
           onChange={handleChange}
-          className={`w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-cta/50 ${
+          className={`w-full p-3 border rounded-md text-primary bg-white ${
             errors.name ? 'border-red-500' : 'border-gray-300'
           }`}
         />
         {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
       </div>
 
+      {/* Email */}
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+        <label htmlFor="email" className="block text-sm font-medium mb-1 text-primary">
           Email Address *
         </label>
         <input
@@ -125,15 +113,16 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ carId }) => {
           name="email"
           value={formData.email}
           onChange={handleChange}
-          className={`w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-cta/50 ${
+          className={`w-full p-3 border rounded-md text-primary bg-white ${
             errors.email ? 'border-red-500' : 'border-gray-300'
           }`}
         />
         {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
       </div>
 
+      {/* Phone */}
       <div>
-        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+        <label htmlFor="phone" className="block text-sm font-medium mb-1 text-primary">
           Phone Number *
         </label>
         <input
@@ -142,15 +131,16 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ carId }) => {
           name="phone"
           value={formData.phone}
           onChange={handleChange}
-          className={`w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-cta/50 ${
+          className={`w-full p-3 border rounded-md text-primary bg-white ${
             errors.phone ? 'border-red-500' : 'border-gray-300'
           }`}
         />
         {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
       </div>
 
+      {/* Preferred Contact */}
       <div>
-        <label htmlFor="preferredContact" className="block text-sm font-medium text-gray-700 mb-1">
+        <label htmlFor="preferredContact" className="block text-sm font-medium mb-1 text-primary">
           Preferred Contact Method
         </label>
         <select
@@ -158,7 +148,7 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ carId }) => {
           name="preferredContact"
           value={formData.preferredContact}
           onChange={handleChange}
-          className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-cta/50"
+          className="w-full p-3 border rounded-md text-primary bg-white border-gray-300"
         >
           <option value="Email">Email</option>
           <option value="Phone">Phone</option>
@@ -166,8 +156,9 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ carId }) => {
         </select>
       </div>
 
+      {/* Message */}
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+        <label htmlFor="message" className="block text-sm font-medium mb-1 text-primary">
           Your Message *
         </label>
         <textarea
@@ -176,22 +167,18 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ carId }) => {
           rows={4}
           value={formData.message}
           onChange={handleChange}
-          className={`w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-cta/50 ${
+          className={`w-full p-3 border rounded-md text-primary bg-white ${
             errors.message ? 'border-red-500' : 'border-gray-300'
           }`}
-        ></textarea>
+        />
         {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
       </div>
 
+      {/* Submit + WhatsApp */}
       <div className="flex flex-col sm:flex-row gap-4">
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="btn btn-primary flex-1"
-        >
+        <button type="submit" disabled={isSubmitting} className="btn btn-primary flex-1">
           {isSubmitting ? 'Sending...' : 'Submit Enquiry'}
         </button>
-        
         <a
           href="https://wa.me/441234567890"
           target="_blank"
@@ -202,18 +189,6 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ carId }) => {
           WhatsApp Us
         </a>
       </div>
-      
-      <p className="text-sm text-gray-600 mt-4">
-        By submitting this form, you agree to our{' '}
-        <a href="/privacy" className="text-cta hover:underline">
-          Privacy Policy
-        </a>{' '}
-        and{' '}
-        <a href="/terms" className="text-cta hover:underline">
-          Terms & Conditions
-        </a>
-        .
-      </p>
     </form>
   );
 };

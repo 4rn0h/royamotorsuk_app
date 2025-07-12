@@ -1,4 +1,4 @@
-# === React Frontend (assumed in a /frontend directory) ===
+# === React Frontend (frontend directory) ===
 node_modules/
 build/
 .env
@@ -16,6 +16,7 @@ yarn-error.log*
 *.bak
 *.tmp
 *.log
+.marscode
 
 # === Packaging ===
 build/

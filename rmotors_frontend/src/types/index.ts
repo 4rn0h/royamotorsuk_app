@@ -5,11 +5,11 @@ export interface Car {
   year: number;
   price: number;
   mileage: number;
-  exteriorColor: string;
-  interiorColor: string;
-  fuelType: string;
+  exterior_color: string;
+  interior_color: string;
+  fuel_type: string;
   transmission: string;
-  engineSize: string;
+  engine_size: string;
   description: string;
   features: string[];
   images: string[];

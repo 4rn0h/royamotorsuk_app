@@ -1,4 +1,5 @@
 // src/pages/HomePage.tsx
+import teamImage from '../assets/images/WhyRoya.jpeg';
 import React, { useEffect } from 'react';
 import Hero from '../components/Hero';
 import FeaturedCars from '../components/FeaturedCars';
@@ -78,7 +79,7 @@ const HomePage: React.FC = () => {
             </div>
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <img
-                src="https://images.pexels.com/photos/164634/pexels-photo-164634.jpeg"
+                src={teamImage}
                 alt="Luxury car shipping"
                 className="w-full h-auto rounded-lg"
               />

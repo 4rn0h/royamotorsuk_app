@@ -2,17 +2,17 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    './index.html',
+    './src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {
       colors: {
-        primary: 'rgb(var(--primary) / <alpha-value>)',
-        accent: 'rgb(var(--accent) / <alpha-value>)',
-        secondary: 'rgb(var(--secondary) / <alpha-value>)',
-        neutral: 'rgb(var(--neutral) / <alpha-value>)',
-        cta: 'rgb(var(--cta) / <alpha-value>)',
+        primary: '#0D0D0D',     // Near Black
+        accent: '#FF3B30',      // Fire Red
+        secondary: '#FFC800',   // Amber Yellow
+        neutral: '#F8F8F8',     // Off-White
+        cta: '#FF3B30',         // Fire Red (same as accent)
       },
       fontFamily: {
         heading: ['Playfair Display', 'serif'],
@@ -21,4 +21,4 @@ module.exports = {
     },
   },
   plugins: [],
-}
+};

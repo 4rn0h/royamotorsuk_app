@@ -1,47 +1,43 @@
-// src/components/FeaturedCars.tsx
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { cars } from '../data/mockData'; // Assuming this exists
-import CarCard from './CarCard'; // Assuming this exists
-import { ChevronRight } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { Car } from '../types';
+import CarCard from './CarCard';
 
 const FeaturedCars: React.FC = () => {
-  // Get the first 3 cars as featured
-  const featuredCars = cars.slice(0, 3);
+  const [cars, setCars] = useState<Car[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('http://127.0.0.1:8000/api/vehicles/')
+      .then(res => res.json())
+      .then((data) => {
+        setCars(data.slice(0, 3)); // Show 3 featured cars
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error('Error fetching featured cars:', err);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) return <p className="text-center text-primary">Loading featured vehicles...</p>;
 
   return (
     <section className="section bg-neutral">
       <div className="container-custom">
-        <div className="mb-12 text-center">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-4xl font-heading font-medium mb-3 text-primary">Featured Vehicles</h2> {/* <--- ADDED text-primary */}
-            <p className="text-gray-600 text-primary"> {/* <--- ADDED text-primary */}
-              Discover our handpicked selection of exceptional luxury vehicles, each
-              representing the pinnacle of automotive excellence.
-            </p>
-          </div>
-        </div>
+        <h2 className="text-3xl md:text-4xl font-heading font-medium mb-8 text-primary text-center">
+          Featured Vehicles
+        </h2>
+        <p className="text-gray-600 max-w-2xl mx-auto text-center mb-12">
+          Discover our handpicked selection of exceptional luxury vehicles, each
+          representing the pinnacle of automotive excellence.
+        </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {featuredCars.map((car) => (
-            <CarCard key={car.id} car={car} />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
+          {cars.map((car) => (
+            <div key={car.id} className="flex justify-center">
+              <CarCard car={car} />
+            </div>
           ))}
-        </div>
-
-        <div className="mt-12 flex justify-center">
-          <Link
-            to="/cars"
-            className="flex items-center text-cta hover:text-cta/80 font-medium transition-colors text-lg"
-          >
-            View All Collection
-            <ChevronRight size={20} className="ml-1" />
-          </Link>
-        </div>
-
-        <div className="mt-10 text-center md:hidden">
-          <Link to="/cars" className="btn btn-primary">
-            View All Vehicles
-          </Link>
         </div>
       </div>
     </section>
