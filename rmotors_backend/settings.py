@@ -28,10 +28,10 @@ SECRET_KEY = 'django-insecure-=@fm!&hb_93v_zvlk&68hcy5b-pv^t3t%@c9rt&yt97j!=+*st
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    "4rn0h.pythonanywhere.com",  # Your PythonAnywhere domain
+    "4rn0h.pythonanywhere.com",  #PythonAnywhere domain
     "royamotorsuk.com", 
     "www.royamotorsuk.com",
-    "api.royamotorsuk.com"  # Recommended API subdomain
+    "api.royamotorsuk.com"  #Recommended API subdomain
 ]
 
 
@@ -89,7 +89,7 @@ WSGI_APPLICATION = 'rmotors_backend.wsgi.application'
 CORS_ALLOWED_ORIGINS = [
     "https://royamotorsuk.com",
     "https://www.royamotorsuk.com",
-    "https://4rn0h.pythonanywhere.com",
+    #"https://4rn0h.pythonanywhere.com",
 ]
 
 REST_FRAMEWORK = {
@@ -98,7 +98,7 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_PERMISSION_CLASSES': (
         #'rest_framework.permissions.IsAuthenticated',  # Require login by default
-        'rest_framework.permissions.AllowAny' # ✅ Allow all access
+        'rest_framework.permissions.AllowAny' #Allow all access
     ),  
 }
 

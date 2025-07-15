@@ -21,7 +21,7 @@ const CarsPage: React.FC = () => {
   useEffect(() => {
     document.title = 'Our Collection | RoyaMotorsUK';
 
-    fetch('http://127.0.0.1:8000/api/vehicles/')
+    fetch('https://4rn0h.pythonanywhere.com/api/vehicles/')
       .then((res) => res.json())
       .then((data) => {
         setCars(data);

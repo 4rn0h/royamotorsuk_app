@@ -19,7 +19,7 @@ const CarCard: React.FC<CarCardProps> = ({ car }) => {
     car.images && car.images.length > 0
       ? car.images[0].image?.startsWith('http')
         ? car.images[0].image
-        : `http://127.0.0.1:8000${car.images[0].image}`
+        : `https://4rn0h.pythonanywhere.com/api${car.images[0].image}`
       : null;
 
   return (

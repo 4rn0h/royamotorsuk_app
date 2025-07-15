@@ -37,7 +37,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   useEffect(() => {
     if (token) {
       axios
-        .get('http://127.0.0.1:8000/api/users/profile/', {
+        .get('https://4rn0h.pythonanywhere.com/api/users/profile/', {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((res) => setUser(res.data))
@@ -47,12 +47,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const login = async (username: string, password: string) => {
     try {
-      const res = await axios.post('http://127.0.0.1:8000/api/users/login/', { username, password });
+      const res = await axios.post('https://4rn0h.pythonanywhere.com/api/users/login/', { username, password });
       const accessToken = res.data.access;
       localStorage.setItem('access_token', accessToken);
       setToken(accessToken);
 
-      const profile = await axios.get('http://127.0.0.1:8000/api/users/profile/', {
+      const profile = await axios.get('https://4rn0h.pythonanywhere.com/api/users/profile/', {
         headers: { Authorization: `Bearer ${accessToken}` },
       });
 
@@ -71,7 +71,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     confirm_password: string;
   }) => {
     try {
-      await axios.post('http://127.0.0.1:8000/api/users/register/', data);
+      await axios.post('https://4rn0h.pythonanywhere.com/api/users/register/', data);
       return true;
     } catch (error) {
       console.error('Signup failed:', error);
