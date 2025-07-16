@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Car } from '../types';
 import CarCard from './CarCard';
+import API_BASE_URL from '../api';  //import the base URL
 
 const FeaturedCars: React.FC = () => {
   const [cars, setCars] = useState<Car[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('https://4rn0h.pythonanywhere.com/api/vehicles/')
+    fetch(`${API_BASE_URL}/vehicles/`)  //use dynamic base URL
       .then(res => res.json())
       .then((data) => {
         setCars(data.slice(0, 3)); // Show 3 featured cars

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import CarCard from '../components/CarCard';
 import { Car } from '../types';
 import { Search, ChevronDown, FilterX } from 'lucide-react';
+import API_BASE_URL from '../api';  //import the base URL
 
 const CarsPage: React.FC = () => {
   const [cars, setCars] = useState<Car[]>([]);
@@ -21,7 +22,7 @@ const CarsPage: React.FC = () => {
   useEffect(() => {
     document.title = 'Our Collection | RoyaMotorsUK';
 
-    fetch('https://4rn0h.pythonanywhere.com/api/vehicles/')
+    fetch(`${API_BASE_URL}/vehicles/`)
       .then((res) => res.json())
       .then((data) => {
         setCars(data);

@@ -28,10 +28,15 @@ SECRET_KEY = 'django-insecure-=@fm!&hb_93v_zvlk&68hcy5b-pv^t3t%@c9rt&yt97j!=+*st
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    "4rn0h.pythonanywhere.com",  #PythonAnywhere domain
-    "royamotorsuk.com", 
-    "www.royamotorsuk.com",
-    "api.royamotorsuk.com"  #Recommended API subdomain
+    "localhost",
+    "127.0.0.1",
+    "royamotorsuk-app.onrender.com",
+    "api.royamotorsuk.com",
+    # Keep these commented for local testing
+    # "4rn0h.pythonanywhere.com",
+    # "royamotorsuk.com",
+    # "www.royamotorsuk.com",
+    # "api.royamotorsuk.com"
 ]
 
 
@@ -86,10 +91,19 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'rmotors_backend.wsgi.application'
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://royamotorsuk-app.onrender.com",
+    "https://api.royamotorsuk.com"
+]
+
 CORS_ALLOWED_ORIGINS = [
-    "https://royamotorsuk.com",
+    "http://localhost:3000",  # Create React App default
+    "http://localhost:5173",  # Vite default
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1:5173",
+    "https://royamotorsuk-app.onrender.com",
     "https://www.royamotorsuk.com",
-    #"https://4rn0h.pythonanywhere.com",
+    "https://royamotorsuk.com"
 ]
 
 REST_FRAMEWORK = {
@@ -150,9 +164,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 # Static files (PythonAnywhere specific)
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATIC_URL = '/static/'
+#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Static files configuration
 STATIC_URL = '/static/'

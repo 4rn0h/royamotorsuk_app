@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Lead } from '../types';
 import { Car, MessageCircle } from 'lucide-react';
+import API_BASE_URL from '../api';  //import the base URL
 
 interface EnquiryFormProps {
   carId?: string;
@@ -49,7 +50,7 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ carId }) => {
     if (!validate()) return;
     setIsSubmitting(true);
 
-    fetch('https://4rn0h.pythonanywhere.com/api/enquiries/', {
+    fetch(`${API_BASE_URL}/enquiries/`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),

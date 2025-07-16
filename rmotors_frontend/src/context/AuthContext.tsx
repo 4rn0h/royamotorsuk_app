@@ -1,6 +1,7 @@
 // src/context/AuthContext.tsx
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import axios from 'axios';
+import API_BASE_URL from '../api';  //import the base URL
 
 interface User {
   id: number;
@@ -37,7 +38,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   useEffect(() => {
     if (token) {
       axios
-        .get('https://4rn0h.pythonanywhere.com/api/users/profile/', {
+        .get(`${API_BASE_URL}/users/profile/`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((res) => setUser(res.data))
@@ -47,12 +48,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const login = async (username: string, password: string) => {
     try {
-      const res = await axios.post('https://4rn0h.pythonanywhere.com/api/users/login/', { username, password });
+      const res = await axios.post(`${API_BASE_URL}/users/login/`, { username, password });
       const accessToken = res.data.access;
       localStorage.setItem('access_token', accessToken);
       setToken(accessToken);
 
-      const profile = await axios.get('https://4rn0h.pythonanywhere.com/api/users/profile/', {
+      const profile = await axios.get(`${API_BASE_URL}/users/profile/`, {
         headers: { Authorization: `Bearer ${accessToken}` },
       });
 
@@ -71,7 +72,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     confirm_password: string;
   }) => {
     try {
-      await axios.post('https://4rn0h.pythonanywhere.com/api/users/register/', data);
+      await axios.post(`${API_BASE_URL}/users/register/`, data);
       return true;
     } catch (error) {
       console.error('Signup failed:', error);

@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Car as CarType } from '../types';
 import { Calendar, Gauge, Fuel, Settings } from 'lucide-react';
+import API_BASE_URL from '../api';  //import the base URL
 
 interface CarCardProps {
   car: CarType;
@@ -19,7 +20,7 @@ const CarCard: React.FC<CarCardProps> = ({ car }) => {
     car.images && car.images.length > 0
       ? car.images[0].image?.startsWith('http')
         ? car.images[0].image
-        : `https://4rn0h.pythonanywhere.com/api${car.images[0].image}`
+        : `${API_BASE_URL}${car.images[0].image}`
       : null;
 
   return (
