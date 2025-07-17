@@ -28,11 +28,13 @@ SECRET_KEY = 'django-insecure-=@fm!&hb_93v_zvlk&68hcy5b-pv^t3t%@c9rt&yt97j!=+*st
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    "localhost",
-    "127.0.0.1",
-    "royamotorsuk-app.onrender.com",
+    "https://royamotorsukapp-production.up.railway.app/",
     "api.royamotorsuk.com",
+    "localhost", "127.0.0.1",
+    
+    
     # Keep these commented for local testing
+    #"royamotorsuk-app.onrender.com",
     # "4rn0h.pythonanywhere.com",
     # "royamotorsuk.com",
     # "www.royamotorsuk.com",
@@ -76,7 +78,7 @@ ROOT_URLCONF = 'rmotors_backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'rmotors_frontend/dist')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -92,18 +94,20 @@ TEMPLATES = [
 WSGI_APPLICATION = 'rmotors_backend.wsgi.application'
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://royamotorsuk-app.onrender.com",
+    "https://royamotorsukapp-production.up.railway.app/",
     "https://api.royamotorsuk.com"
+    #"https://royamotorsuk-app.onrender.com",
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    #"http://localhost:3000",  # Create React App default
     "http://localhost:5173",  # Vite default
-    #"http://127.0.0.1:3000",
-    #"http://127.0.0.1:5173",
-    "https://royamotorsuk-app.onrender.com",
     "https://www.royamotorsuk.com",
     "https://royamotorsuk.com"
+    #"http://127.0.0.1:3000",
+    #"http://127.0.0.1:5173",
+    #"https://royamotorsuk-app.onrender.com",
+    #"http://localhost:3000",  # Create React App default
+    
 ]
 
 REST_FRAMEWORK = {
@@ -177,9 +181,9 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Serve React build files
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'rmotors_frontend/dist'),
-]
+#STATICFILES_DIRS = [
+    #os.path.join(BASE_DIR, 'rmotors_frontend/dist'),
+#]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
