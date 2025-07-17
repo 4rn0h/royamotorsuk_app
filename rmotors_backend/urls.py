@@ -10,7 +10,7 @@ from django.views.generic import TemplateView # Added TemplateView import
 from users.views import CustomTokenObtainPairView
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name="index.html")),
+    #path('', TemplateView.as_view(template_name="index.html")),
     path('admin/', admin.site.urls),
 
     # Login endpoint using your custom view
@@ -26,11 +26,12 @@ urlpatterns = [
 
 ]
 
+# Serve React frontend for all non-api routes (e.g. `/`, `/about`, etc.)
+urlpatterns += [
+    re_path(r'^(?!api/).*$', TemplateView.as_view(template_name="index.html")),
+]
+
+# Serve static/media in dev
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-
-
-urlpatterns += [
-    re_path(r'^(?!api/).*$', TemplateView.as_view(template_name='index.html')),
-]
