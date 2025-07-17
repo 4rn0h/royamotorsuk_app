@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,24 +22,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=@fm!&hb_93v_zvlk&68hcy5b-pv^t3t%@c9rt&yt97j!=+*st'
+SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret-key-for-local")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-#DEBUG = True
-DEBUG = False
+DEBUG = config("DEBUG", default=False, cast=bool)
 
 ALLOWED_HOSTS = [
-    "https://royamotorsukapp-production.up.railway.app/",
+    "royamotorsukapp-production.up.railway.app",
     "api.royamotorsuk.com",
-    "localhost", "127.0.0.1",
-    
-    
-    # Keep these commented for local testing
-    #"royamotorsuk-app.onrender.com",
-    # "4rn0h.pythonanywhere.com",
-    # "royamotorsuk.com",
-    # "www.royamotorsuk.com",
-    # "api.royamotorsuk.com"
+    "www.royamotorsuk.com",
+    "royamotorsuk.com",
+    "localhost",
+    "127.0.0.1"
 ]
 
 
@@ -94,20 +89,17 @@ TEMPLATES = [
 WSGI_APPLICATION = 'rmotors_backend.wsgi.application'
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://royamotorsukapp-production.up.railway.app/",
-    "https://api.royamotorsuk.com"
-    #"https://royamotorsuk-app.onrender.com",
+    "https://royamotorsukapp-production.up.railway.app",
+    "https://api.royamotorsuk.com",
+    "https://www.royamotorsuk.com",
+    "https://royamotorsuk.com"
 ]
+
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # Vite default
     "https://www.royamotorsuk.com",
     "https://royamotorsuk.com"
-    #"http://127.0.0.1:3000",
-    #"http://127.0.0.1:5173",
-    #"https://royamotorsuk-app.onrender.com",
-    #"http://localhost:3000",  # Create React App default
-    
 ]
 
 REST_FRAMEWORK = {
