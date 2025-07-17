@@ -68,6 +68,5 @@ rmotors_frontend/yarn-error.log*
 
 # === Packaging ===
 build/
-dist/
 *.egg-info/
 .eggs/

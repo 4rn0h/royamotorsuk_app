@@ -10,6 +10,7 @@ from django.views.generic import TemplateView # Added TemplateView import
 from users.views import CustomTokenObtainPairView
 
 urlpatterns = [
+    path('', TemplateView.as_view(template_name="index.html")),
     path('admin/', admin.site.urls),
 
     # Login endpoint using your custom view
