@@ -88,7 +88,7 @@ TEMPLATES = [
 
 # Serve React build files
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'rmotors_frontend', 'dist', 'assets'),
+    os.path.join(BASE_DIR, 'rmotors_frontend', 'dist'),
 ]
 
 # Static files configuration
