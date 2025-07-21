@@ -3,7 +3,7 @@ from django.urls import path, include, re_path
 from django.views.generic import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
-from enquiries.views import EnquiryCreateAPIViewmy 
+from enquiries.views import EnquiryCreateAPIView
 from users.views import CustomTokenObtainPairView
 from rest_framework_simplejwt.views import TokenRefreshView
 
