@@ -48,7 +48,6 @@ db.sqlite3
 
 # === React Frontend (assumed in a /frontend directory) ===
 rmotors_frontend/node_modules/
-rmotors_frontend/build/
 rmotors_frontend/.env
 rmotors_frontend/.env.*
 rmotors_frontend/.DS_Store

@@ -1,6 +1,5 @@
 # === React Frontend (frontend directory) ===
 node_modules/
-build/
 .env
 .env.*
 .DS_Store
