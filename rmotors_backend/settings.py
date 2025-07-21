@@ -73,7 +73,7 @@ ROOT_URLCONF = 'rmotors_backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'rmotors_frontend', 'dist', 'assets')],
+        'DIRS': [os.path.join(BASE_DIR, 'rmotors_frontend', 'dist')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

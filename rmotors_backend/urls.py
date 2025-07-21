@@ -3,7 +3,7 @@ from django.urls import path, include, re_path
 from django.views.generic import TemplateView
 from django.conf import settings
 from django.conf.urls.static import static
-from enquiries.views import EnquiryCreateAPIView
+from enquiries.views import EnquiryCreateAPIViewmy 
 from users.views import CustomTokenObtainPairView
 from rest_framework_simplejwt.views import TokenRefreshView
 
@@ -23,5 +23,6 @@ if settings.DEBUG:
 
 # For all frontend routes — including root '/'
 urlpatterns += [
-    re_path(r'^(?!api/).*$', TemplateView.as_view(template_name='index.html')),
+    re_path(r'^(?!api/|admin/).*$', TemplateView.as_view(template_name='index.html')),
+
 ]
