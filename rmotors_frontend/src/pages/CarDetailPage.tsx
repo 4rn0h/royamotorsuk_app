@@ -7,6 +7,7 @@ import {
   ArrowLeft, Calendar, Gauge, Fuel, Settings, PaintBucket, Palette,
   Users, DollarSign, Truck, MessageCircle, Share2,
 } from 'lucide-react';
+import API_BASE_URL from '../api'; //import your API base
 
 const CarDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -14,7 +15,7 @@ const CarDetailPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'details' | 'features' | 'enquiry'>('details');
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:8000/api/vehicles/${id}/`)
+    fetch(`${API_BASE_URL}/vehicles/${id}/`) //dynamic URL
       .then((res) => res.json())
       .then(setCar)
       .catch(console.error);

@@ -1,3 +1,4 @@
+
 from rest_framework import generics, permissions
 from .models import Vehicle
 from .serializers import VehicleSerializer

@@ -33,12 +33,11 @@ ALLOWED_HOSTS = [
     "www.royamotorsuk.com",
     "royamotorsuk.com",
     "localhost",
-    "127.0.0.1"
+    "127.0.0.1",
 ]
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -86,48 +85,11 @@ TEMPLATES = [
     },
 ]
 
-# Serve React build files
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'rmotors_frontend', 'dist'),
-]
-
-# Static files configuration
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
 
 WSGI_APPLICATION = 'rmotors_backend.wsgi.application'
 
-CSRF_TRUSTED_ORIGINS = [
-    "https://royamotorsukapp-production.up.railway.app",
-    "https://api.royamotorsuk.com",
-    "https://www.royamotorsuk.com",
-    "https://royamotorsuk.com"
-]
-
-
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",  # Vite default
-    "https://www.royamotorsuk.com",
-    "https://royamotorsuk.com"
-]
-
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ],
-    'DEFAULT_PERMISSION_CLASSES': (
-        #'rest_framework.permissions.IsAuthenticated',  # Require login by default
-        'rest_framework.permissions.AllowAny' #Allow all access
-    ),  
-}
-
-
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -155,7 +117,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTH_USER_MODEL = 'users.CustomUser'
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.2/topics/i18n/
 
@@ -168,12 +129,42 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.2/howto/static-files/
+# Static files configuration
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Serve React build files
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'rmotors_frontend', 'dist'),
+]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Media files configuration
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://royamotorsukapp-production.up.railway.app",
+    "https://api.royamotorsuk.com",
+    "https://www.royamotorsuk.com",
+    "https://royamotorsuk.com"
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",  # Vite default
+    "https://www.royamotorsuk.com",
+    "https://royamotorsuk.com"
+]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': (
+        #'rest_framework.permissions.IsAuthenticated',  # Require login by default
+        'rest_framework.permissions.AllowAny' #Allow all access
+    ),  
+}
 
 
 # Default primary key field type

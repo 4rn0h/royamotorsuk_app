@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import axios from 'axios';
+import API_BASE_URL from '../api'; //import API base
 
 const DashboardRedirect: React.FC = () => {
   const [role, setRole] = useState<string | null>(null);
@@ -13,7 +14,7 @@ const DashboardRedirect: React.FC = () => {
         const token = localStorage.getItem('access_token');
         if (!token) throw new Error('No token');
 
-        const response = await axios.get('http://127.0.0.1:8000/api/users/profile/', {
+        const response = await axios.get(`${API_BASE_URL}/users/profile/`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

@@ -19,20 +19,19 @@ urlpatterns = [
     path('api/', include('chat.urls')),
     path('api/enquiries/', EnquiryCreateAPIView.as_view(), name='enquiry-create'),
 
-    #Serve static files like /assets/... before catch-all route
+    # Serve static assets before fallback route
     re_path(r'^assets/(?P<path>.*)$', django_serve, {
-        'document_root': os.path.join(settings.BASE_DIR, 'dist/assets'),
+        'document_root': os.path.join(settings.BASE_DIR, 'rmotors_frontend', 'dist', 'assets'),
     }),
     re_path(r'^favicon.ico$', django_serve, {
-        'document_root': os.path.join(settings.BASE_DIR, 'dist'),
+        'document_root': os.path.join(settings.BASE_DIR, 'rmotors_frontend', 'dist'),
     }),
 ]
 
-# Serve media in development
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-#Catch-all for React routes AFTER static/assets
+# Catch-all for React routing
 urlpatterns += [
-    re_path(r'^(?!admin/|api/).*$', TemplateView.as_view(template_name='index.html')),
+    re_path(r'^(?!admin/|api/|static/|media/|assets/).*$', TemplateView.as_view(template_name='index.html')),
 ]
