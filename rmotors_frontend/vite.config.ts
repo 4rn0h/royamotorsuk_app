@@ -8,7 +8,7 @@ export default defineConfig({
     exclude: ['lucide-react'],
   build: {
     rollupOptions: {
-      external: ['axios'],  // Add this line
+      external: ['axios'],
     },
   },
   },
