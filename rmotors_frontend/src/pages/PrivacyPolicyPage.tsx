@@ -17,7 +17,7 @@ const PrivacyPolicyPage: React.FC = () => {
       </div>
 
       <div className="container-custom">
-        <div className="bg-white p-8 rounded-lg shadow-md">
+        <div className="bg-muted p-8 rounded-lg shadow-md">
           <div className="prose prose-lg max-w-none">
             <p>
               Last Updated: January 1, 2025

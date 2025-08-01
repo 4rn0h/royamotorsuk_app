@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
                 href="https://instagram.com/RoyaMotorsUK"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white/10 p-2 rounded-full hover:bg-accent hover:text-primary transition-colors"
+                className="bg-muted/10 p-2 rounded-full hover:bg-accent hover:text-primary transition-colors"
                 aria-label="Instagram"
               >
                 <Instagram size={20} />
@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
                 href="https://facebook.com/RoyaMotorsUK"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white/10 p-2 rounded-full hover:bg-accent hover:text-primary transition-colors"
+                className="bg-muted/10 p-2 rounded-full hover:bg-accent hover:text-primary transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook size={20} />
@@ -41,7 +41,7 @@ const Footer: React.FC = () => {
                 href="https://twitter.com/RoyaMotorsUK"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white/10 p-2 rounded-full hover:bg-accent hover:text-primary transition-colors"
+                className="bg-muted/10 p-2 rounded-full hover:bg-accent hover:text-primary transition-colors"
                 aria-label="Twitter"
               >
                 <Twitter size={20} />
@@ -145,7 +145,7 @@ const Footer: React.FC = () => {
               <h4 className="text-lg font-medium mb-2">We Accept</h4>
               <div className="flex items-center space-x-3">
                 {/* Visa Logo */}
-                <div className="bg-white/10 p-2 rounded flex items-center justify-center h-12 w-16">
+                <div className="bg-muted/10 p-2 rounded flex items-center justify-center h-12 w-16">
                   <svg
                     viewBox="0 0 750 471"
                     fill="none"
@@ -161,7 +161,7 @@ const Footer: React.FC = () => {
                 </div>
 
                 {/* MasterCard Logo */}
-                <div className="bg-white/10 p-2 rounded flex items-center justify-center h-12 w-16">
+                <div className="bg-muted/10 p-2 rounded flex items-center justify-center h-12 w-16">
                   <svg
                     viewBox="0 0 750 471"
                     fill="none"
@@ -177,7 +177,7 @@ const Footer: React.FC = () => {
                 </div>
 
                 {/* Bank Transfer */}
-                <div className="bg-white/10 p-2 rounded flex items-center justify-center h-12 w-16">
+                <div className="bg-muted/10 p-2 rounded flex items-center justify-center h-12 w-16">
                   <Landmark size={24} className="text-white" />
                 </div>
               </div>

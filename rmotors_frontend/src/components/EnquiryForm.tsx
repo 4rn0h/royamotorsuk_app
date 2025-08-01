@@ -96,7 +96,7 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ carId }) => {
           name="name"
           value={formData.name}
           onChange={handleChange}
-          className={`w-full p-3 border rounded-md text-primary bg-white ${
+          className={`w-full p-3 border rounded-md text-primary bg-muted ${
             errors.name ? 'border-red-500' : 'border-gray-300'
           }`}
         />
@@ -114,7 +114,7 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ carId }) => {
           name="email"
           value={formData.email}
           onChange={handleChange}
-          className={`w-full p-3 border rounded-md text-primary bg-white ${
+          className={`w-full p-3 border rounded-md text-primary bg-muted ${
             errors.email ? 'border-red-500' : 'border-gray-300'
           }`}
         />
@@ -132,7 +132,7 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ carId }) => {
           name="phone"
           value={formData.phone}
           onChange={handleChange}
-          className={`w-full p-3 border rounded-md text-primary bg-white ${
+          className={`w-full p-3 border rounded-md text-primary bg-muted ${
             errors.phone ? 'border-red-500' : 'border-gray-300'
           }`}
         />
@@ -149,7 +149,7 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ carId }) => {
           name="preferredContact"
           value={formData.preferredContact}
           onChange={handleChange}
-          className="w-full p-3 border rounded-md text-primary bg-white border-gray-300"
+          className="w-full p-3 border rounded-md text-primary bg-muted border-gray-300"
         >
           <option value="Email">Email</option>
           <option value="Phone">Phone</option>
@@ -168,7 +168,7 @@ const EnquiryForm: React.FC<EnquiryFormProps> = ({ carId }) => {
           rows={4}
           value={formData.message}
           onChange={handleChange}
-          className={`w-full p-3 border rounded-md text-primary bg-white ${
+          className={`w-full p-3 border rounded-md text-primary bg-muted ${
             errors.message ? 'border-red-500' : 'border-gray-300'
           }`}
         />

@@ -24,7 +24,7 @@ const CarCard: React.FC<CarCardProps> = ({ car }) => {
       : null;
 
   return (
-    <div className="card group bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
+    <div className="card group bg-muted rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
       {/* Image */}
       <div className="relative overflow-hidden h-64 bg-gray-100">
         {imageUrl ? (

@@ -77,7 +77,7 @@ const HomePage: React.FC = () => {
                 </li>
               </ul>
             </div>
-            <div className="bg-white p-6 rounded-lg shadow-lg">
+            <div className="bg-muted p-6 rounded-lg shadow-lg">
               <img
                 src={teamImage}
                 alt="Luxury car shipping"

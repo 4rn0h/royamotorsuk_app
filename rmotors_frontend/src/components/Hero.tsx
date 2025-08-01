@@ -91,7 +91,7 @@ const Hero: React.FC = () => {
               </Link>
               <Link
                 to="/contact"
-                className="btn bg-white/10 text-white border border-white/30 hover:bg-white/20 transition-colors"
+                className="btn bg-muted/10 text-white border border-white/30 hover:bg-muted/20 transition-colors"
               >
                 Contact Us
               </Link>
@@ -104,7 +104,7 @@ const Hero: React.FC = () => {
        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
         <span className="text-white text-sm mb-2">Scroll to explore</span>
         <div className="w-6 h-10 border-2 border-white/60 rounded-full flex justify-center p-1">
-          <div className="w-1 h-2 bg-white rounded-full animate-bounce mt-1"></div>
+          <div className="w-1 h-2 bg-muted rounded-full animate-bounce mt-1"></div>
         </div>
       </div> 
     </div> 

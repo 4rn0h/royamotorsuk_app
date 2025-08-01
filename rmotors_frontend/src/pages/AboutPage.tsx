@@ -44,7 +44,7 @@ const AboutPage: React.FC = () => {
               white-glove customer care.
             </p>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-lg">
+          <div className="bg-muted p-6 rounded-lg shadow-lg">
             <img
               src={teamImage}
               alt="RoyaMotorsUK About_Us"
@@ -67,7 +67,7 @@ const AboutPage: React.FC = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-white p-8 rounded-lg shadow-md">
+              <div className="bg-muted p-8 rounded-lg shadow-md">
                 <h3 className="text-2xl font-medium mb-4 text-primary">Our Mission</h3>
                 <p className="text-primary mb-6">
                   To provide unparalleled access to the world's finest vehicles, delivering them
@@ -81,7 +81,7 @@ const AboutPage: React.FC = () => {
                 </p>
               </div>
 
-              <div className="bg-white p-8 rounded-lg shadow-md">
+              <div className="bg-muted p-8 rounded-lg shadow-md">
                 <h3 className="text-2xl font-medium mb-4 text-primary">Our Values</h3>
                 <ul className="space-y-4">
                   <li className="flex items-start">
@@ -163,30 +163,30 @@ const AboutPage: React.FC = () => {
         </div>
         */}
 
-        {/* Stats Section - Cards are bg-white (light) */}
+        {/* Stats Section - Cards are bg-muted (light) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-          <div className="bg-white p-8 rounded-lg shadow-md text-center">
+          <div className="bg-muted p-8 rounded-lg shadow-md text-center">
             <div className="bg-accent/10 text-accent p-4 rounded-full inline-block mb-4">
               <Award size={28} />
             </div>
             <div className="text-4xl font-bold text-primary mb-2">5+</div>
             <p className="text-primary">Years of Excellence</p>
           </div>
-          <div className="bg-white p-8 rounded-lg shadow-md text-center">
+          <div className="bg-muted p-8 rounded-lg shadow-md text-center">
             <div className="bg-accent/10 text-accent p-4 rounded-full inline-block mb-4">
               <Users size={28} />
             </div>
             <div className="text-4xl font-bold text-primary mb-2">250+</div>
             <p className="text-primary">Satisfied Clients</p>
           </div>
-          <div className="bg-white p-8 rounded-lg shadow-md text-center">
+          <div className="bg-muted p-8 rounded-lg shadow-md text-center">
             <div className="bg-accent/10 text-accent p-4 rounded-full inline-block mb-4">
               <MapPin size={28} />
             </div>
             <div className="text-4xl font-bold text-primary mb-2">2</div>
             <p className="text-primary">Office Locations</p>
           </div>
-          <div className="bg-white p-8 rounded-lg shadow-md text-center">
+          <div className="bg-muted p-8 rounded-lg shadow-md text-center">
             <div className="bg-accent/10 text-accent p-4 rounded-full inline-block mb-4">
               <Shield size={28} />
             </div>

@@ -54,7 +54,7 @@ const CarDetailPage: React.FC = () => {
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+            <div className="bg-muted rounded-lg shadow-md overflow-hidden">
               <ImageGallery
                 images={car.images.map((img) => img.image)}
                 alt={`${car.make} ${car.model}`}
@@ -168,7 +168,7 @@ const CarDetailPage: React.FC = () => {
           </div>
 
           <div className="space-y-6">
-            <div className="bg-white rounded-lg shadow-md overflow-hidden">
+            <div className="bg-muted rounded-lg shadow-md overflow-hidden">
               <div className="p-6">
                 <h1 className="text-3xl font-medium mb-2 text-primary">{car.make} {car.model}</h1>
                 <div className="flex items-center mb-6">
@@ -205,7 +205,7 @@ const CarDetailPage: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-white rounded-lg shadow-md overflow-hidden border border-accent/20">
+            <div className="bg-muted rounded-lg shadow-md overflow-hidden border border-accent/20">
               <div className="p-6">
                 <h3 className="text-xl font-medium mb-4 flex items-center">
                   <DollarSign size={20} className="mr-2 text-accent" />
@@ -226,7 +226,7 @@ const CarDetailPage: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-white rounded-lg shadow-md overflow-hidden border border-accent/20">
+            <div className="bg-muted rounded-lg shadow-md overflow-hidden border border-accent/20">
               <div className="p-6">
                 <h3 className="text-xl font-medium mb-4 flex items-center">
                   <Truck size={20} className="mr-2 text-accent" />

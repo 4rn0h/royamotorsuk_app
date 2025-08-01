@@ -54,7 +54,7 @@ const Testimonials: React.FC = () => {
         </div>
 
         <div className="max-w-4xl mx-auto relative">
-          <div className="bg-white/5 p-8 md:p-12 rounded-lg relative">
+          <div className="bg-muted/5 p-8 md:p-12 rounded-lg relative">
             <Quote className="text-accent absolute top-8 left-8 w-12 h-12 opacity-30" />
             
             <div className="text-center">
@@ -72,7 +72,7 @@ const Testimonials: React.FC = () => {
           <div className="flex justify-center mt-8 space-x-4">
             <button
               onClick={prevTestimonial}
-              className="p-2 rounded-full bg-white/10 hover:bg-accent hover:text-primary transition-colors"
+              className="p-2 rounded-full bg-muted/10 hover:bg-accent hover:text-primary transition-colors"
               aria-label="Previous testimonial"
             >
               <ChevronLeft size={24} />
@@ -83,7 +83,7 @@ const Testimonials: React.FC = () => {
                   key={index}
                   onClick={() => setCurrentIndex(index)}
                   className={`w-3 h-3 rounded-full transition-all ${
-                    index === currentIndex ? 'bg-accent' : 'bg-white/30 hover:bg-white/50'
+                    index === currentIndex ? 'bg-accent' : 'bg-muted/30 hover:bg-muted/50'
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 ></button>
@@ -91,7 +91,7 @@ const Testimonials: React.FC = () => {
             </div>
             <button
               onClick={nextTestimonial}
-              className="p-2 rounded-full bg-white/10 hover:bg-accent hover:text-primary transition-colors"
+              className="p-2 rounded-full bg-muted/10 hover:bg-accent hover:text-primary transition-colors"
               aria-label="Next testimonial"
             >
               <ChevronRight size={24} />

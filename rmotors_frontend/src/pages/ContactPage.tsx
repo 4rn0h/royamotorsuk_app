@@ -92,7 +92,7 @@ const ContactPage: React.FC = () => {
         <div className="flex flex-col items-center space-y-8">
           {/* Contact Form */}
           <div className="w-full max-w-2xl">
-            <div className="bg-white p-8 rounded-lg shadow-md">
+            <div className="bg-muted p-8 rounded-lg shadow-md">
               <h2 className="text-2xl font-medium mb-6 text-primary">Get in Touch</h2>
               
               {isSubmitted ? (
@@ -208,7 +208,7 @@ const ContactPage: React.FC = () => {
 
           {/* Contact Information & Socials grouped together */}
           <div className="w-full max-w-2xl space-y-8">
-            <div className="bg-white p-8 rounded-lg shadow-md">
+            <div className="bg-muted p-8 rounded-lg shadow-md">
               <h2 className="text-2xl font-medium mb-6 text-primary">Contact Information</h2>
               {/* Changed ul to a grid for two columns on medium screens and above */}
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6"> 
@@ -272,7 +272,7 @@ const ContactPage: React.FC = () => {
               </ul>
             </div>
 
-            <div className="bg-white p-8 rounded-lg shadow-md">
+            <div className="bg-muted p-8 rounded-lg shadow-md">
               <h2 className="text-2xl font-medium mb-6 text-primary">Connect With Us</h2>
               <div className="flex space-x-4 mb-6 justify-center">
                 <a

@@ -19,7 +19,7 @@ const CallToAction: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <Link
                 to="/contact"
-                className="bg-white/10 hover:bg-white/20 transition-all py-4 px-6 rounded-lg flex items-center justify-center space-x-3"
+                className="bg-muted/10 hover:bg-muted/20 transition-all py-4 px-6 rounded-lg flex items-center justify-center space-x-3"
               >
                 <span>Ask Roya</span>
                 <ArrowRight size={18} />
@@ -35,7 +35,7 @@ const CallToAction: React.FC = () => {
               
               <a
                 href="mailto:info@royamotorsuk.com"
-                className="bg-white/10 hover:bg-white/20 transition-all py-4 px-6 rounded-lg flex items-center justify-center space-x-3"
+                className="bg-muted/10 hover:bg-muted/20 transition-all py-4 px-6 rounded-lg flex items-center justify-center space-x-3"
               >
                 <Mail size={18} />
                 <span>Email Us</span>

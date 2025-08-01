@@ -60,7 +60,7 @@ const ChatWidget: React.FC = () => {
 
       {/* Chat window */}
       <div
-        className={`fixed bottom-0 right-0 z-50 w-full sm:w-96 bg-white rounded-t-lg shadow-xl transition-transform duration-300 transform ${
+        className={`fixed bottom-0 right-0 z-50 w-full sm:w-96 bg-muted rounded-t-lg shadow-xl transition-transform duration-300 transform ${
           isOpen ? 'translate-y-0' : 'translate-y-full'
         } sm:right-6 sm:bottom-6 sm:rounded-lg flex flex-col max-h-[80vh]`}
       >
@@ -99,14 +99,14 @@ const ChatWidget: React.FC = () => {
         </div>
 
         {/* Chat input */}
-        <form onSubmit={handleSendMessage} className="p-4 border-t border-gray-200 bg-white">
+        <form onSubmit={handleSendMessage} className="p-4 border-t border-gray-200 bg-muted">
           <div className="flex items-center">
             <input
               type="text"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Type your message..."
-              className="flex-1 p-3 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-cta/50 text-primary bg-white"
+              className="flex-1 p-3 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-cta/50 text-primary bg-muted"
             />
             <button
               type="submit"

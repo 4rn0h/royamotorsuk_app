@@ -27,7 +27,7 @@ const ProfilePage: React.FC = () => {
   return (
     <div className="container-custom py-16">
       <h2 className="text-3xl font-heading mb-4">Your Profile</h2>
-      <div className="bg-white rounded-lg shadow p-6 space-y-4">
+      <div className="bg-muted rounded-lg shadow p-6 space-y-4">
         <p><strong>Username:</strong> {userData.username}</p>
         <p><strong>Email:</strong> {userData.email}</p>
         <p><strong>Role:</strong> {userData.role}</p>

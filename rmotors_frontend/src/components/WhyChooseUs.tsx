@@ -24,8 +24,8 @@ const Feature: React.FC<FeatureProps> = ({ icon, title, description }) => {
 
 const WhyChooseUs: React.FC = () => {
   return (
-    // The section itself is bg-white, so its direct children's text needs to be dark
-    <section className="section bg-white">
+    // The section itself is bg-muted, so its direct children's text needs to be dark
+    <section className="section bg-muted">
       <div className="container-custom">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-4xl font-heading font-medium mb-4 text-primary">Why Choose RoyaMotorsUK</h2> {/* Explicitly set text-primary */}

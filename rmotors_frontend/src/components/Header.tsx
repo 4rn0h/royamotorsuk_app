@@ -36,13 +36,11 @@ const Header: React.FC = () => {
       }`}
     >
       <div className="container-custom flex items-center justify-between relative">
-        {/* Left: Logo and Desktop Nav */}
+        {/* Left: Logo and desktop nav */}
         <div className="flex items-center space-x-6">
           <Link to="/">
             <Logo />
           </Link>
-
-          {/* Desktop nav */}
           <nav className="hidden lg:flex space-x-4">
             {navLinks.slice(0, 2).map(({ path, label }) => (
               <Link
@@ -58,14 +56,13 @@ const Header: React.FC = () => {
           </nav>
         </div>
 
-        {/* Center: Brand Name */}
+        {/* Center brand name */}
         <div className="absolute left-1/2 transform -translate-x-1/2 text-lg font-bold whitespace-nowrap">
           ROYAMOTORSUK
         </div>
 
-        {/* Right: Nav, CTA, Account */}
+        {/* Right: Desktop nav, user, CTA, menu toggle */}
         <div className="flex items-center space-x-4">
-          {/* Desktop right nav */}
           <nav className="hidden lg:flex space-x-4">
             {navLinks.slice(2).map(({ path, label }) => (
               <Link
@@ -80,17 +77,17 @@ const Header: React.FC = () => {
             ))}
           </nav>
 
-          {/* User dropdown */}
+          {/* User icon dropdown */}
           <div className="relative">
             <button
               onClick={() => setShowDropdown((prev) => !prev)}
               className="hover:text-accent"
-              aria-label="Account"
+              aria-label="User menu"
             >
               <UserCircle size={22} />
             </button>
             {showDropdown && (
-              <div className="absolute right-0 mt-2 w-40 bg-white text-primary rounded-md shadow-lg py-1 z-50 border">
+              <div className="absolute right-0 mt-2 w-40 bg-muted text-primary rounded-md shadow-lg py-1 z-50 border">
                 {user ? (
                   <button
                     onClick={logout}
@@ -126,7 +123,7 @@ const Header: React.FC = () => {
             <Phone size={14} className="mr-1" /> +44 7964 595923
           </a>
 
-          {/* Mobile menu toggle */}
+          {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="lg:hidden"
@@ -152,7 +149,7 @@ const Header: React.FC = () => {
             </Link>
           ))}
 
-          {/* Mobile user actions */}
+          {/* Auth links */}
           <div className="pt-2">
             {user ? (
               <button
@@ -179,7 +176,7 @@ const Header: React.FC = () => {
             )}
           </div>
 
-          {/* Call button mobile */}
+          {/* Call to action */}
           <a
             href="tel:+447964595923"
             className="inline-flex items-center bg-accent text-primary text-sm font-medium px-4 py-2 rounded hover:bg-accent/90"

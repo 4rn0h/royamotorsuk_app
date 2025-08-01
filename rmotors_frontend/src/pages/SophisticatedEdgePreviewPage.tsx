@@ -14,7 +14,7 @@ const SophisticatedEdgePreviewPage = () => {
       </p>
 
       {/* Live Preview Section */}
-      <section className="bg-white p-6 rounded-lg shadow-md mb-8">
+      <section className="bg-muted p-6 rounded-lg shadow-md mb-8">
         <h2 className="font-heading text-3xl md:text-4xl mb-4 text-gray-900">Live Preview</h2>
         <p className="font-body text-gray-600 mb-6">
           This section provides a tangible example of how the selected color scheme could be applied to common website components.
@@ -61,7 +61,7 @@ const SophisticatedEdgePreviewPage = () => {
 
       <div className="grid md:grid-cols-2 gap-8 mb-8">
         {/* Color Palette Section */}
-        <section className="bg-white p-6 rounded-lg shadow-md">
+        <section className="bg-muted p-6 rounded-lg shadow-md">
           <h2 className="font-heading text-3xl md:text-4xl mb-4 text-gray-900">Color Palette</h2>
           <p className="font-body text-gray-600 mb-6">
             Here are the specific colors that make up the scheme. Hover over any swatch to see its HEX code.
@@ -81,7 +81,7 @@ const SophisticatedEdgePreviewPage = () => {
         </section>
 
         {/* Design Rationale Section */}
-        <section className="bg-white p-6 rounded-lg shadow-md">
+        <section className="bg-muted p-6 rounded-lg shadow-md">
           <h2 className="font-heading text-3xl md:text-4xl mb-4 text-gray-900">Design Rationale</h2>
           <p className="font-body text-gray-600 mb-6">
             Understanding the 'why' behind a color choice is key. This section explains the psychological impact and the design theory supporting this scheme.
@@ -100,7 +100,7 @@ const SophisticatedEdgePreviewPage = () => {
       </div>
 
       {/* Suggested Application Section */}
-      <section className="bg-white p-6 rounded-lg shadow-md">
+      <section className="bg-muted p-6 rounded-lg shadow-md">
         <h2 className="font-heading text-3xl md:text-4xl mb-4 text-gray-900">Suggested Application</h2>
         <p className="font-body text-gray-600 mb-6">
           This guide provides practical recommendations on where to use each color to create a balanced and effective user interface.

@@ -116,7 +116,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({ images, alt }) => {
                     setActiveIndex(index);
                   }}
                   className={`w-3 h-3 rounded-full ${
-                    activeIndex === index ? 'bg-white' : 'bg-white/40'
+                    activeIndex === index ? 'bg-muted' : 'bg-muted/40'
                   }`}
                   aria-label={`Go to image ${index + 1}`}
                 ></button>

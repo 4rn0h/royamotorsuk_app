@@ -60,7 +60,7 @@
   }
 
   .card {
-    @apply bg-neutral rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg;
+  @apply bg-muted rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg;
   }
 
   .section {
